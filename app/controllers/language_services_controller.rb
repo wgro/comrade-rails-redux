@@ -19,6 +19,7 @@ class LanguageServicesController < ApplicationController
   def create
     @language_service = LanguageService.new(language_service_params)
     if @language_service.save
+      create_homepages
       redirect_to language_services_path
     else
       render inertia: 'language_services/New', props: { language_service: @language_service }
@@ -28,6 +29,8 @@ class LanguageServicesController < ApplicationController
   def update
     @language_service = LanguageService.find(params[:id])
     if @language_service.update(language_service_params)
+      @language_service.homepages.destroy_all
+      create_homepages
       redirect_to language_services_path
     else
       render inertia: 'language_services/Edit', props: { language_service: @language_service }
@@ -44,5 +47,11 @@ class LanguageServicesController < ApplicationController
 
   def language_service_params
     params.require(:language_service).permit(:name, :description)
+  end
+
+  def create_homepages
+    params[:language_service][:homepages].each do |homepage_params|
+      @language_service.homepages.create(homepage_params.permit(:url, :title, :html_lang))
+    end
   end
 end

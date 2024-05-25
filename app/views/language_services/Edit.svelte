@@ -12,6 +12,7 @@
   let values = {
     name: language_service.name,
     description: language_service.description,
+    homepages: language_service.homepages || [],
   };
 
   function handleSubmit() {

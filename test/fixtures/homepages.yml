@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: homepages
+#
+#  id                  :integer          not null, primary key
+#  html_lang           :string
+#  title               :string
+#  url                 :string           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  language_service_id :integer          not null
+#
+# Indexes
+#
+#  index_homepages_on_language_service_id  (language_service_id)
+#
+# Foreign Keys
+#
+#  language_service_id  (language_service_id => language_services.id)
+#
+
+one:
+  url: MyString
+  title: MyString
+  html_lang: MyString
+  language_service: one
+
+two:
+  url: MyString
+  title: MyString
+  html_lang: MyString
+  language_service: two

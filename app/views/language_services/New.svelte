@@ -9,6 +9,7 @@
   let values = {
     name: null,
     description: null,
+    homepages: [],
   };
 
   function handleSubmit() {

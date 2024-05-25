@@ -9,5 +9,7 @@
 #  updated_at  :datetime         not null
 #
 class LanguageService < ApplicationRecord
+  has_many :homepages, dependent: :destroy
+
   validates :name, presence: true
 end

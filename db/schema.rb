@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_25_202736) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_25_212013) do
+  create_table "homepages", force: :cascade do |t|
+    t.string "url", null: false
+    t.string "title"
+    t.string "html_lang"
+    t.integer "language_service_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["language_service_id"], name: "index_homepages_on_language_service_id"
+  end
+
   create_table "language_services", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -26,4 +36,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_25_202736) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "homepages", "language_services"
 end
