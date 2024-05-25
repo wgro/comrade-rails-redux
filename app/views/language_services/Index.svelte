@@ -4,7 +4,7 @@
 </script>
 
 <script lang="ts">
-
+    import { inertia } from '@inertiajs/svelte'
     export let language_services;
 
     console.log(language_services)
@@ -15,7 +15,10 @@
     <h1>Language Services</h1>
     <p>These are the language services that are scraped by Comrade.</p>
     {#if language_services.length === 0}
-        <article><p>No language services.</p><button>Add one!</button></article>
+        <article>
+            <p>No language services.</p>
+            <button use:inertia={{href: "/language_services/new"}} >Add one!</button>
+        </article>
 
     {/if}
     {#each language_services as language_service}

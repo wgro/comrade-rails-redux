@@ -3,7 +3,8 @@
   "dependencies": {
     "@js-from-routes/client": "^1.0.4",
     "@js-from-routes/inertia": "^1.10.2",
-    "@picocss/pico": "^2.0.6"
+    "@picocss/pico": "^2.0.6",
+    "bits-ui": "^0.21.9"
   },
   "devDependencies": {
     "@inertiajs/svelte": "^1.1.0",

@@ -1,10 +1,11 @@
 <script lang="ts">
     import { page } from '@inertiajs/svelte';
+
 </script>
 <div>
     <nav class="container">
         <ul>
-            <li><strong>Acme Corp</strong></li>
+            <li><strong>Comrade</strong></li>
         </ul>
         <ul>
             <li><a href="#">About</a></li>

@@ -10,6 +10,7 @@ export default defineConfig({
     dedupe: ['axios'],
     alias: {
       '@': path.resolve(__dirname, './app/views'),
+      '@helpers': path.resolve(__dirname, './app/javascript/api'),
     },
   },
   build: {
