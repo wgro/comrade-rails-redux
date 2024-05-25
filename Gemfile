@@ -65,3 +65,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "activerecord-enhancedsqlite3-adapter", "~> 0.8.0"
+
+gem "solid_queue", "~> 0.3.1"
+
+gem "mission_control-jobs", "~> 0.2.1"
