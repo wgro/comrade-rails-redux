@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   mount MissionControl::Jobs::Engine, at: "/jobs"
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "static#index"
 end

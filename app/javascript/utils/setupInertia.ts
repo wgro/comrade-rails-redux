@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createInertiaApp } from '@inertiajs/svelte';
-import { metaContent } from '@/utils/metaContent';
+import { metaContent } from './metaContent';
 
 const pages = import.meta.glob('../../views/**/*.svelte', { eager: true });
 
