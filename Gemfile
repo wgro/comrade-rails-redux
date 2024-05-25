@@ -3,13 +3,13 @@ source "https://rubygems.org"
 ruby "3.3.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.3", ">= 7.1.3.3"
+gem "rails"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 2.0", force_ruby_platform: true
+gem "sqlite3", "~> 1.4", force_ruby_platform: true
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -70,8 +70,13 @@ gem "activerecord-enhancedsqlite3-adapter", "~> 0.8.0"
 
 gem "solid_queue", "~> 0.3.1"
 
-gem "mission_control-jobs", "~> 0.2.1"
+gem "mission_control-jobs", github: "rails/mission_control-jobs", branch: "main"
 
 gem "solid_cache", "~> 0.6.0"
 
 gem "sqlpkg", "~> 0.2.3"
+
+gem 'inertia_rails'
+
+gem "vite_rails"
+
