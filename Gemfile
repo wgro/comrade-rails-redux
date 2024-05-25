@@ -83,3 +83,7 @@ gem 'inertia_rails'
 gem "vite_rails"
 
 gem "lograge"
+
+group :development do
+  gem "js_from_routes"
+end

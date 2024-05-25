@@ -1,0 +1,2 @@
+class LanguageService < ApplicationRecord
+end

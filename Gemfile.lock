@@ -143,6 +143,8 @@ GEM
     jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    js_from_routes (3.0.1)
+      railties (>= 5.1, < 8)
     json (2.7.2)
     language_server-protocol (3.17.0.3)
     lograge (0.14.0)
@@ -355,6 +357,7 @@ DEPENDENCIES
   importmap-rails
   inertia_rails
   jbuilder
+  js_from_routes
   lograge
   mission_control-jobs!
   puma (>= 5.0)
