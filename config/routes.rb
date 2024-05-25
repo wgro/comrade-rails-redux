@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   # Solid queue monitoring
   mount MissionControl::Jobs::Engine, at: "/jobs"
 
+  # Debugbar
+  if defined? Debugbar
+    mount Debugbar::Engine => Debugbar.config.prefix
+  end
+
   # Defines the root path route ("/")
   root "static#index"
 end

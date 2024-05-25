@@ -1,0 +1,10 @@
+:root {
+  --color-ivory: "#F8F7F6";
+  --color-teal: "#1A3948";
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-teal);
+  font-family: Tahoma, sans-serif;
+}

@@ -17,10 +17,11 @@
 
       Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
     -->
-
+    <%= debugbar_head  if defined? Debugbar %>
   </head>
 
   <body>
     <%= yield %>
+    <%= debugbar_body if defined? Debugbar %>
   </body>
 </html>
