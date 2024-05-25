@@ -11,6 +11,11 @@ class LanguageServicesController < ApplicationController
     render inertia: 'language_services/New', props: { language_service: @language_service }
   end
 
+  def edit
+    @language_service = LanguageService.find(params[:id])
+    render inertia: 'language_services/Edit', props: { language_service: @language_service }
+  end
+
   def create
     @language_service = LanguageService.new(language_service_params)
     if @language_service.save
@@ -18,11 +23,6 @@ class LanguageServicesController < ApplicationController
     else
       render inertia: 'language_services/New', props: { language_service: @language_service }
     end
-  end
-
-  def edit
-    @language_service = LanguageService.find(params[:id])
-    render inertia: 'language_services/Edit', props: { language_service: @language_service }
   end
 
   def update
@@ -36,7 +36,7 @@ class LanguageServicesController < ApplicationController
 
   def destroy
     @language_service = LanguageService.find(params[:id])
-    @language_service.destroy
+    @language_service.destroy!
     redirect_to language_services_path
   end
 

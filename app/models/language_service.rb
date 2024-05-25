@@ -9,5 +9,5 @@
 #  updated_at  :datetime         not null
 #
 class LanguageService < ApplicationRecord
-  validates_presence_of :name
+  validates :name, presence: true
 end
