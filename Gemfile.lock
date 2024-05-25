@@ -192,6 +192,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.5-x86_64-linux)
       racc (~> 1.4)
+    oj (3.16.3)
+      bigdecimal (>= 3.0)
     parallel (1.24.0)
     parser (3.3.1.0)
       ast (~> 2.4.1)
@@ -360,6 +362,7 @@ DEPENDENCIES
   js_from_routes
   lograge
   mission_control-jobs!
+  oj
   puma (>= 5.0)
   rails
   rubocop

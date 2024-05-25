@@ -1,9 +1,8 @@
 <script lang="ts">
     import { page } from '@inertiajs/svelte';
 </script>
-
 <div>
-    <nav>
+    <nav class="container">
         <ul>
             <li><strong>Acme Corp</strong></li>
         </ul>

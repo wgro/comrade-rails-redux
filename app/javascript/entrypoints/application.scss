@@ -1,6 +1,4 @@
-@use "../../../node_modules/@picocss/pico/scss/pico" with (
-$enable-semantic-container: true
-);
+@use "../../../node_modules/@picocss/pico";
 
 :root {
   --color-ivory: "#F8F7F6";

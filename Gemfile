@@ -55,6 +55,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
+  gem "js_from_routes"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
   gem 'debugbar'
@@ -84,6 +85,4 @@ gem "vite_rails"
 
 gem "lograge"
 
-group :development do
-  gem "js_from_routes"
-end
+gem 'oj'
