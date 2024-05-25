@@ -4,12 +4,14 @@
     "@js-from-routes/client": "^1.0.4",
     "@js-from-routes/inertia": "^1.10.2",
     "@picocss/pico": "^2.0.6",
+    "@tabler/icons-svelte": "^3.5.0",
     "bits-ui": "^0.21.9"
   },
   "devDependencies": {
     "@inertiajs/svelte": "^1.1.0",
     "@prettier/plugin-ruby": "^4.0.4",
     "@sveltejs/vite-plugin-svelte": "^3.1.0",
+    "@tsconfig/svelte": "^5.0.4",
     "@typescript-eslint/eslint-plugin": "^7.10.0",
     "@typescript-eslint/parser": "^7.10.0",
     "axios": "^1.7.2",

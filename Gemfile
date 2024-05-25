@@ -61,6 +61,11 @@ group :development do
   gem 'debugbar'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'annotate'
+
+  gem 'solargraph'
+
+  gem 'solargraph-rails'
 end
 
 group :test do
@@ -86,3 +91,6 @@ gem "vite_rails"
 gem "lograge"
 
 gem 'oj'
+
+gem 'csv'
+

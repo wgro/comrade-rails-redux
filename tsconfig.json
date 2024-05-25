@@ -1,0 +1,32 @@
+{
+    "extends": "@tsconfig/svelte/tsconfig.json",
+    "compilerOptions": {
+        "strict": false,
+        "target": "esNext",
+        "module": "esNext",
+        "moduleResolution": "node",
+        "verbatimModuleSyntax": false,
+        "types": [
+            "vite/client",
+            "vitest/globals",
+            "@testing-library/jest-dom"
+        ],
+        "paths": {
+            "@/*": [
+                "./app/javascript/*"
+            ],
+            "@test/*": [
+                "./spec/javascript/*"
+            ]
+        }
+    },
+    "include": [
+        "app/javascript/**/*",
+        "spec/javascript/**/*",
+        "app/views/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "public"
+    ]
+}

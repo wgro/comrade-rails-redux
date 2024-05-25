@@ -1,3 +1,4 @@
+<!-- Edit.svelte -->
 <script lang="ts" context="module">
   import Layout from '@/layouts/Layout.svelte';
   import { router } from '@inertiajs/svelte';
@@ -6,17 +7,19 @@
 </script>
 
 <script lang="ts">
+  export let language_service;
+
   let values = {
-    name: null,
-    description: null,
+    name: language_service.name,
+    description: language_service.description,
   };
 
   function handleSubmit() {
-    router.post('/language_services', values);
+    router.put(`/language_services/${language_service.id}`, values);
   }
 </script>
 
 <section>
-  <h1>Create a new language service</h1>
+  <h1>Edit language service</h1>
   <LanguageServiceForm {values} {handleSubmit} />
 </section>

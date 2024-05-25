@@ -4,7 +4,7 @@
 </script>
 
 <script lang="ts">
-    import { inertia } from '@inertiajs/svelte'
+    import { inertia, Link } from '@inertiajs/svelte'
     export let language_services;
 
     console.log(language_services)
@@ -12,20 +12,42 @@
 
 
 <div>
-    <h1>Language Services</h1>
-    <p>These are the language services that are scraped by Comrade.</p>
+    <header>
+        <div class="header-text">
+            <h1>Language Services</h1>
+            <p>These are the language services that are scraped by Comrade.</p>
+        </div>
+        <button use:inertia={{href: "/language_services/new"}} >New</button>
+    </header>
     {#if language_services.length === 0}
         <article>
             <p>No language services.</p>
             <button use:inertia={{href: "/language_services/new"}} >Add one!</button>
         </article>
 
+    {:else}
+        <table>
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {#each language_services as language_service}
+                <tr>
+                    <td>{language_service.name}</td>
+                    <td>{language_service.description}</td>
+                    <td>
+                        <a use:inertia={{ href: `/language_services/${language_service.id}/edit` }}>Edit</a>
+                        <a class="delete" use:inertia={{ href: `/language_services/${language_service.id}`, method: 'delete' }}>Delete</a>
+                    </td>
+                </tr>
+            {/each}
+            </tbody>
+        </table>
     {/if}
-    {#each language_services as language_service}
-        <div>
-            {language_service}
-        </div>
-    {/each}
 </div>
 
 <style lang="scss">
