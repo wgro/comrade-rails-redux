@@ -26,7 +26,14 @@
 </div>
 
 <style lang="scss">
+
+    article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     article p {
-      color: $grey-300;
+      color: #999;
     }
 </style>
