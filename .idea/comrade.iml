@@ -77,10 +77,12 @@
     <orderEntry type="library" scope="PROVIDED" name="rexml (v3.2.8, mise: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v2.3.2, mise: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.21.1, mise: 3.3.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="solid_cache (v0.6.0, mise: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="solid_queue (v0.3.1, mise: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.2.1, mise: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.4.2, mise: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.7.3, mise: 3.3.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sqlpkg (v0.2.3.1, mise: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.3.3, mise: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="strscan (v3.1.0, mise: 3.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.1, mise: 3.3.1) [gem]" level="application" />
