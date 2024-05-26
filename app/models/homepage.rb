@@ -22,6 +22,4 @@ class Homepage < ApplicationRecord
   belongs_to :language_service
 
   validates :url, presence: true
-  validates :title, presence: true
-  validates :html_lang, presence: true
 end

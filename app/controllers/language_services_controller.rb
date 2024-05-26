@@ -19,7 +19,6 @@ class LanguageServicesController < ApplicationController
   def create
     @language_service = LanguageService.new(language_service_params)
     if @language_service.save
-      create_homepages
       redirect_to language_services_path
     else
       redirect_back(
@@ -31,8 +30,8 @@ class LanguageServicesController < ApplicationController
 
   def update
     @language_service = LanguageService.find(params[:id])
+    Rails.logger.info "Params: #{params.inspect}"
     if @language_service.update(language_service_params)
-      create_homepages
       redirect_to language_services_path
     else
       redirect_back(
@@ -51,18 +50,6 @@ class LanguageServicesController < ApplicationController
   private
 
   def language_service_params
-    params.require(:language_service).permit(:name, :description, homepages: [:url])
-  end
-
-  def homepage_params
-    params.require(:homepage).permit(:url)
-  end
-
-  def create_homepages
-    return if params[:language_service][:homepages].blank?
-
-    params[:language_service][:homepages].each do |homepage_params|
-      @language_service.homepages.create(homepage_params.permit(:url))
-    end
+    params.require(:language_service).permit(:name, :description, homepages_attributes: [:url, :id, :_destroy])
   end
 end

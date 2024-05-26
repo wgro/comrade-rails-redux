@@ -1,7 +1,7 @@
 <!-- Edit.svelte -->
 <script lang="ts" context="module">
   import Layout from '@/layouts/Layout.svelte';
-  import { router, useForm } from '@inertiajs/svelte';
+  import { useForm } from '@inertiajs/svelte';
   import LanguageServiceForm from './LanguageServiceForm.svelte';
   export const layout = Layout;
 </script>
@@ -12,12 +12,28 @@
   let form = useForm({
     name: language_service.name,
     description: language_service.description,
-    homepages: language_service.homepages || [],
+    homepages: language_service.homepages || [], // Ensure homepages is an array
   });
 
   function handleSubmit() {
-    console.log($form);
-    $form.put(`/language_services/${language_service.id}`);
+    console.log($form); // Log the form state before submission
+    $form
+      .transform((data) => ({
+        language_service: {
+          name: data.name,
+          description: data.description,
+          homepages_attributes: data.homepages,
+        },
+      }))
+      .put(`/language_services/${language_service.id}`, {
+        preserveState: true,
+        onSuccess: () => {
+          console.log('Form submitted successfully');
+        },
+        onError: (errors) => {
+          console.log('Form submission failed', errors);
+        },
+      });
   }
 </script>
 
