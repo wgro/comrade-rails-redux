@@ -22,7 +22,10 @@ class LanguageServicesController < ApplicationController
       create_homepages
       redirect_to language_services_path
     else
-      render inertia: 'language_services/New', props: { language_service: @language_service }
+      redirect_back(
+        fallback_location: language_services_path,
+        inertia: { errors: @language_service.errors.messages }
+      )
     end
   end
 
@@ -33,7 +36,10 @@ class LanguageServicesController < ApplicationController
       create_homepages
       redirect_to language_services_path
     else
-      render inertia: 'language_services/Edit', props: { language_service: @language_service }
+      redirect_back(
+        fallback_location: language_services_path,
+        inertia: { errors: @language_service.errors.messages }
+      )
     end
   end
 
@@ -50,6 +56,8 @@ class LanguageServicesController < ApplicationController
   end
 
   def create_homepages
+    return if params[:language_service][:homepages].blank?
+
     params[:language_service][:homepages].each do |homepage_params|
       @language_service.homepages.create(homepage_params.permit(:url, :title, :html_lang))
     end
