@@ -10,11 +10,13 @@
   }
 
   function addHomepage() {
-    values.homepages = [...values.homepages, { url: '' }];
+    values.homepages_attributes = [...values.homepages_attributes, { url: '' }];
   }
 
   function removeHomepage(index) {
-    values.homepages = values.homepages.filter((_, i) => i !== index);
+    values.homepages_attributes = values.homepages_attributes.filter(
+      (_, i) => i !== index,
+    );
   }
 </script>
 
@@ -47,10 +49,10 @@
   <h3>Homepages</h3>
   <p>Homepages are the pages that house Pangea feeds.</p>
   <fieldset>
-    {#if !values.homepages.length}
+    {#if !values.homepages_attributes.length}
       <p>No homepages yet.</p>
     {:else}
-      {#each values.homepages as homepage, index}
+      {#each values.homepages_attributes as homepage, index}
         <div>
           <label>
             Homepage URL
@@ -58,7 +60,10 @@
               type="text"
               bind:value={homepage.url}
               placeholder="e.g. https://example.com"
-              on:input={() => (values.homepages = [...values.homepages])}
+              on:input={() =>
+                (values.homepages_attributes = [
+                  ...values.homepages_attributes,
+                ])}
             />
           </label>
           <button type="button" on:click={() => removeHomepage(index)}

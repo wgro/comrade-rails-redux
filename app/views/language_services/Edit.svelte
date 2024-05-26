@@ -12,7 +12,7 @@
   let form = useForm({
     name: language_service.name,
     description: language_service.description,
-    homepages: language_service.homepages || [], // Ensure homepages is an array
+    homepages_attributes: language_service.homepages || [], // Ensure homepages is an array
   });
 
   function handleSubmit() {
@@ -22,7 +22,7 @@
         language_service: {
           name: data.name,
           description: data.description,
-          homepages_attributes: data.homepages,
+          homepages_attributes: data.homepages_attributes,
         },
       }))
       .put(`/language_services/${language_service.id}`, {
