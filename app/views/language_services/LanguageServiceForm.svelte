@@ -5,30 +5,20 @@
   export let values;
   export let handleSubmit;
 
-  console.log(values);
-
   function onSubmit(event) {
-    event.preventDefault();
     handleSubmit();
   }
 
   function addHomepage() {
-    console.log('add homepage');
-    values = {
-      ...values,
-      homepages: [...values.homepages, { url: '', id: '' }],
-    };
+    values.homepages = [...values.homepages, { url: '' }];
   }
 
   function removeHomepage(index) {
-    values = {
-      ...values,
-      homepages: values.homepages.filter((_, i) => i !== index),
-    };
+    values.homepages = values.homepages.filter((_, i) => i !== index);
   }
 </script>
 
-<form on:submit={onSubmit}>
+<form on:submit|preventDefault={onSubmit}>
   <fieldset>
     <div class="grid">
       <div>
@@ -57,7 +47,7 @@
   <h3>Homepages</h3>
   <p>Homepages are the pages that house Pangea feeds.</p>
   <fieldset>
-    {#if !values.homepages}
+    {#if !values.homepages.length}
       <p>No homepages yet.</p>
     {:else}
       {#each values.homepages as homepage, index}
@@ -68,11 +58,7 @@
               type="text"
               bind:value={homepage.url}
               placeholder="e.g. https://example.com"
-            />
-            <input
-              type="hidden"
-              name="homepages[][id]"
-              bind:value={homepage.id}
+              on:input={() => (values.homepages = [...values.homepages])}
             />
           </label>
           <button type="button" on:click={() => removeHomepage(index)}

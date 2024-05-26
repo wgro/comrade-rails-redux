@@ -1,7 +1,7 @@
 class LanguageServicesController < ApplicationController
   def index
     @language_services = LanguageService.all.map do |service|
-      service.attributes.merge('description' => helpers.maybe_description(service[:description]))
+      service.attributes.merge('description' => helpers.maybe_description(service[:description]), 'homepages_count' => service.homepages.count)
     end
     render inertia: 'language_services/Index', props: { language_services: @language_services }
   end
@@ -32,7 +32,6 @@ class LanguageServicesController < ApplicationController
   def update
     @language_service = LanguageService.find(params[:id])
     if @language_service.update(language_service_params)
-      @language_service.homepages.destroy_all
       create_homepages
       redirect_to language_services_path
     else
@@ -52,14 +51,18 @@ class LanguageServicesController < ApplicationController
   private
 
   def language_service_params
-    params.require(:language_service).permit(:name, :description)
+    params.require(:language_service).permit(:name, :description, homepages: [:url])
+  end
+
+  def homepage_params
+    params.require(:homepage).permit(:url)
   end
 
   def create_homepages
     return if params[:language_service][:homepages].blank?
 
     params[:language_service][:homepages].each do |homepage_params|
-      @language_service.homepages.create(homepage_params.permit(:url, :title, :html_lang))
+      @language_service.homepages.create(homepage_params.permit(:url))
     end
   end
 end

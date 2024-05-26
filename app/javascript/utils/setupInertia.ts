@@ -14,3 +14,4 @@ createInertiaApp({
         const _app = new App({ target: el, props });
     },
 });
+

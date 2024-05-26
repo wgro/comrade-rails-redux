@@ -16,6 +16,7 @@
   });
 
   function handleSubmit() {
+    console.log($form);
     $form.put(`/language_services/${language_service.id}`);
   }
 </script>
