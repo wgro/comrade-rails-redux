@@ -13,7 +13,7 @@ class LanguageServicesController < ApplicationController
 
   def edit
     @language_service = LanguageService.find(params[:id])
-    render inertia: 'language_services/Edit', props: { language_service: @language_service }
+    render inertia: 'language_services/Edit', props: { language_service: @language_service.as_json(include: :homepages) }
   end
 
   def create
